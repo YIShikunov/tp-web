@@ -1,0 +1,38 @@
+<div class="row">
+	<div class="span2">
+		<img src="/uploads/{{ question.author.avatar.name }}" height="100" width="100" class="img-polaroid">
+		<div class="btn-group like" style="margin-left:5px">
+			<button type="button" class="btn btn-default">
+				<i class="icon-thumbs-up"></i>
+			</button>
+			<button type="button" class="btn btn-default">
+				<i class="icon-thumbs-down"></i>
+			</button>
+		</div>
+		<span class="label label-success" style="color:#22ff22">{{question.author.rating}}</span>
+	</div> 
+	<div class="span7">
+		<h4><a href="/question/{{question.id}}">{{ question.name }}</a></h4>
+		<div class="row">
+			<div class="span3">
+				<a href="#">{{ question.author.user.username }}
+					    {%if user.is_authenticated %}
+					    {%if user == question.author.user%}
+					    (you)
+					    {%endif%}
+					    {%endif%}</a>
+			</div>
+			<div class="span4">
+				<a href="#">{{ question.creationDate }}</a>
+			</div>
+		</div>
+		<p>{{ question.content }}</p>
+		<div>
+			<a href="/question/{{question.id}}">Answer <span class="badge">5</span></a>
+			Tags: 
+			{% for tag in question.tags.all %}
+				<a href="#">{{ tag.tagName }}</a>, 
+			{% endfor %}
+		</div>
+	</div>
+</div>

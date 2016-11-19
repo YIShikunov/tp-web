@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+
+{% block main %}
+
+{% if user.is_authenticated %}
+<div class="span8">
+	<h2>Answer to "{{question.title}}".</h2>
+	<form method="post" action="/answer/{{question.id}}">
+	{% csrf_token %}	
+	{{ form }}<br>
+	<input type="submit" value="Answer!" />
+	</form>
+</div>
+{% else %}
+<div class="alert alert-danger" role="alert">
+You must be logged in to submit an answer
+</div>
+{% endif %}
+
+{% endblock %}
+
+

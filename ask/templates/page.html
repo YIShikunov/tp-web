@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block main %}
+	<h2>Best questions</h2>
+
+	{% for question in questions %}
+		{% include 'question.html' with question=question %}<br>
+	{% endfor %}
+
+	
+	<div class="pagination">
+		<ul>
+			{%if current_page != 1%}<li><a href="/page/{{current_page|add:"-1"}}">Prev</a></li>{%endif%}
+			{% for num in page_nums %}
+				<li><a href="/page/{{num}}">{%if num != current_page%}{{num}}{%else%}<b>{{num}}</b>{%endif%}</a></li>
+			{% endfor %}
+			<li><a href="/page/{{current_page|add:"1"}}">Next</a></li>
+		</ul>
+	</div>
+{% endblock %}

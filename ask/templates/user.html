@@ -1,0 +1,19 @@
+{% if user.is_authenticated %}
+<div class="span4 offset1 user">
+	<img src="/uploads/{{ user.user_data.avatar }}" class="img-rounded avatar" width="30", height="30">
+	<a href="/">
+		<i class="icon-user"></i>{{ user.username }}
+	</a>-
+	<a href="/profile"> <small> Settings </small></a>-
+	<a href="/logout"> <small> Log out </small> </a> 
+</div>
+{% else %}
+<div class="span4 offset1 guest">
+	<img src="http://lorempixel.com/30/30" class="img-rounded avatar">
+	<a href="/">
+		<i class="icon-user"></i>Guest
+	</a>-
+	<a href="/signup"> <small> Sign up </small></a>-
+	<a href="/login"> <small> Log in </small> </a> 
+</div>
+{% endif %}

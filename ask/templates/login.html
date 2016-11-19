@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="span8">
+	<h2>Log in</h2>
+	{% if form.errors %}
+	<div class="alert alert-danger" role="alert">
+		We could not log you in with these credentials.
+	</div>
+	{% endif %}
+	
+	<form method="post" action="{% url 'login' %}">
+	{% csrf_token %}	
+	      <div class="row">
+		      <div class="span2">
+			      <h4>Login</h4>
+		      </div>
+		      <div class="span3">
+			      {{ form.username }}
+		      </div>
+	      </div>
+	      <div class="row">
+		      <div class="span2">
+			      <h4>Password</h4>
+		      </div>
+		      <div class="span3">
+			      {{ form.password }}
+		      </div>
+	      </div>
+	      <div class="btn-group span2 offset1">
+		      <button type="submit" class="btn btn-primary">Log in</button>
+		      <button type="submit" class="btn btn-primary">Sign up</button>
+	      </div>
+	<input type="hidden" name="next" value="/" />
+	</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block main %}
+	<h2>Best questions</h2>
+
+	{% for i in "13245"%}
+		<div class="row">
+			<div class="span2">
+				<img src="http://lorempixel.com/120/120" class="img-polaroid">
+			</div> 
+			<div class="span7">
+				<h4><a href="/">How to ask questions on this site?</a></h4>
+				<p>I can't read and write, is there some way to ask a q...</p>
+				<div>
+					<a href="#">Answer <span class="badge">42</span></a>
+					Tags: 
+					<a href="#">typical_mongol</a>, 
+					<a href="#">rocket_science</a>,
+					<a href="#">catch_22</a>
+				</div>
+			</div>
+		</div>
+			<div class="btn-group like" style="margin-left:5px">
+				<button type="button" class="btn btn-default">
+					<i class="icon-thumbs-up"></i>
+				</button>
+				<button type="button" class="btn btn-default">
+					<i class="icon-thumbs-down"></i>
+				</button>
+			</div>
+			<span class="label label-success" style="color:#22ff22">+23</span>
+
+
+		<br><br>
+	{% endfor %}
+
+	
+	<div class="pagination">
+		<ul>
+			<li><a href="#">Prev</a></li>
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">Next</a></li>
+		</ul>
+	</div>
+{% endblock %}
